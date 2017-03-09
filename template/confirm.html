@@ -1,0 +1,38 @@
+<div class="products">
+    <h3 class="ttl_request">資料請求・お問い合わせフォーム</h3>
+    <div class="form_wrap request">
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+            <input type="hidden" name="act" value="complete">
+<?php echo $hiddenitems ?>
+            
+            <dl class="list_form">
+                <dt>お名前</dt>
+                <dd class="style1"><?php echo $_POST[name__i] ?></dd>
+                <dt>年齢</dt>
+                <dd class="style1"><?php echo $_POST[age__i] ?></dd>
+                <dt>郵便番号</dt>
+                <dd class="style1"><?php echo $_POST[zip__i] ?></dd>
+                <dt>ご住所</dt>
+                <dd class="style1"><?php echo $_POST[address__i] ?></dd>
+                <dt>お電話番号</dt>
+                <dd class="style1"><?php echo $_POST[tel__i] ?></dd>
+                <dt>メールアドレス</dt>
+                <dd class="style1"><?php echo $_POST[mail__i] ?></dd>
+                <dt>サイトを知ったきっかけ</dt>
+                <dd class="style2"><?php echo $_POST[know__i] ?></dd>
+                <dt>ご計画予定は？</dt>
+                <dd class="style2"><?php echo $_POST[plan__i] ?></dd>
+                <dt>イベント・見学会の参加</dt>
+                <dd class="style2"><?php echo $_POST[event__i] ?></dd>
+                <dt>ショールームのパンフレット</dt>
+                <dd class="style2"><?php echo $_POST[pamphlet__i] ?></dd>
+                <dt>リフォーム資料</dt>
+                <dd class="style2"><?php echo $_POST[reform__i] ?></dd>
+                <dt>お問い合わせ内容</dt>
+                <dd class="style1"><?php echo nl2br($_POST[content__i]) ?></dd>
+            </dl>
+            <p class="btn_submit"><input type="submit" name="back" value="戻る">&nbsp;&nbsp;<input type="submit" name="go" value="送信する"></p>
+        </form>
+        <p class="note">※ご入力頂いたお客様の個人情報は、お客様の建築計画の準備をすることを利用目的とし、お問い合わせ内容につきましても厳重に取り扱い致します。</p>
+    <!-- /.form_wrap --></div>
+<!-- /.products --></div>

@@ -1,0 +1,78 @@
+<h3 class="ttl_request">資料請求・お問い合わせフォーム</h3>
+
+<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+    <input type="hidden" name="act" value="confirm">
+    <?php
+        // エラー表示
+        if ($disp_error) {
+            echo '<p class="pf-text-error" style="border: 1px solid; padding: .5em;">入力項目に不備があります。</p>';
+        }
+        
+        // 初回画面のみ（再入力画面では表示しない）
+        if ($_POST[act] != "confirm") {
+    ?>
+        <!-- 初回のみ表示 -->
+    <?php
+        }
+    ?>
+    
+    <dl class="list_form">
+        <dt>お名前</dt>
+        <dd class="style1"><input class="input_text input1" type="text" value="<?php echo $_POST[name__i] ?>" name="name__i"><?php echo $disp_error[name__i] ?></dd>
+        <dt>年齢</dt>
+        <dd class="style1"><input class="input_text input2" type="text" value="<?php echo $_POST[age__i] ?>" name="age__i"> 歳<?php echo $disp_error[age__i] ?></dd>
+        <dt>郵便番号</dt>
+        <dd class="style1"><input id="zip" class="input_text input2" type="text" value="<?php echo $_POST[zip__i] ?>" name="zip__i" maxlength="8"> <input id="btn_address" class="btn_address" type="button" value="〒番号から自動入力"><?php echo $disp_error[zip__i] ?></dd>
+        <dt>ご住所</dt>
+        <dd class="style1"><input id="address" class="input_text input1" type="text" value="<?php echo $_POST[address__i] ?>" name="address__i"><?php echo $disp_error[address__i] ?></dd>
+        <dt>お電話番号</dt>
+        <dd class="style1"><input class="input_text input1" type="text" value="<?php echo $_POST[tel__i] ?>" name="tel__i"><?php echo $disp_error[tel__i] ?></dd>
+        <dt>メールアドレス</dt>
+        <dd class="style1"><input class="input_text input1" type="text" value="<?php echo $_POST[mail__i] ?>" name="mail__i"><?php echo $disp_error[mail__i] ?></dd>
+        <dt>サイトを知ったきっかけ</dt>
+        <dd class="style2">
+            <input type="hidden" name="know__i" value="" />
+            <label><input type="radio" name="know__i" value="チラシ"<?php if ($_POST[know__i]=="チラシ") print ' checked="checked"' ?>>チラシ</label>
+            <label><input type="radio" name="know__i" value="雑誌"<?php if ($_POST[know__i]=="雑誌") print ' checked="checked"' ?>>雑誌</label>
+            <label><input type="radio" name="know__i" value="facebook"<?php if ($_POST[know__i]=="facebook") print ' checked="checked"' ?>>facebook</label>
+            <label><input type="radio" name="know__i" value="ネット検索"<?php if ($_POST[know__i]=="ネット検索") print ' checked="checked"' ?>>ネット検索</label>
+            <label><input type="radio" name="know__i" value="知人・友人"<?php if ($_POST[know__i]=="知人・友人") print ' checked="checked"' ?>>知人・友人</label>
+            <label><input type="radio" name="know__i" value="その他"<?php if ($_POST[know__i]=="その他") print ' checked="checked"' ?>>その他</label>
+            <?php echo $disp_error[know__i] ?>
+        </dd>
+        <dt>ご計画予定は？</dt>
+        <dd class="style2">
+            <input type="hidden" name="plan__i" value="" />
+            <label><input type="radio" name="plan__i" value="土地＋新築建物"<?php if ($_POST[plan__i]=="土地＋新築建物") print ' checked="checked"' ?>>土地＋新築建物</label>
+            <label><input type="radio" name="plan__i" value="新築建物"<?php if ($_POST[plan__i]=="新築建物") print ' checked="checked"' ?>>新築建物</label>
+            <label><input type="radio" name="plan__i" value="リフォーム"<?php if ($_POST[plan__i]=="リフォーム") print ' checked="checked"' ?>>リフォーム</label>
+            <label><input type="radio" name="plan__i" value="その他"<?php if ($_POST[plan__i]=="その他") print ' checked="checked"' ?>>その他</label>
+            <?php echo $disp_error[plan__i] ?>
+        </dd>
+        <dt>イベント・見学会の参加</dt>
+        <dd class="style2">
+            <input type="hidden" name="event__i" value="" />
+            <label><input type="radio" name="event__i" value="希望する"<?php if ($_POST[event__i]=="希望する") print ' checked="checked"' ?>>希望する</label>
+            <label><input type="radio" name="event__i" value="希望しない"<?php if ($_POST[event__i]=="希望しない") print ' checked="checked"' ?>>希望しない</label>
+            <?php echo $disp_error[event__i] ?>
+        </dd>
+        <dt>ショールームのパンフレット</dt>
+        <dd class="style2">
+            <input type="hidden" name="pamphlet__i" value="" />
+            <label><input type="radio" name="pamphlet__i" value="希望する"<?php if ($_POST[pamphlet__i]=="希望する") print ' checked="checked"' ?>>希望する</label>
+            <label><input type="radio" name="pamphlet__i" value="希望しない"<?php if ($_POST[pamphlet__i]=="希望しない") print ' checked="checked"' ?>>希望しない</label>
+            <?php echo $disp_error[pamphlet__i] ?>
+        </dd>
+        <dt>リフォーム資料</dt>
+        <dd class="style2">
+            <input type="hidden" name="reform__i" value="" />
+            <label><input type="radio" name="reform__i" value="希望する"<?php if ($_POST[reform__i]=="希望する") print ' checked="checked"' ?>>希望する</label>
+            <label><input type="radio" name="reform__i" value="希望しない"<?php if ($_POST[reform__i]=="希望しない") print ' checked="checked"' ?>>希望しない</label>
+            <?php echo $disp_error[reform__i] ?>
+        </dd>
+        <dt>お問い合わせ内容</dt>
+        <dd class="style1"><textarea class="textarea1" name="content__i"><?php echo $_POST[content__i] ?></textarea><?php echo $disp_error[content__i] ?></dd>
+    </dl>
+    <p class="btn_submit"><input type="submit" value="送信する"></p>
+</form>
+
